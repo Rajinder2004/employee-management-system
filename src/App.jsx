@@ -26,7 +26,7 @@ const App = () => {
       console.log(`Admin Login Successfully with email:${email} and password:${password}`);
       setUser('admin');
       localStorage.setItem('loggedUser', JSON.stringify({role:'admin'}));
-    } else if(userData){
+    } else if(Array.isArray(userData) && userData.length > 0){
       const employee = userData.find( item => item.email === email && item.password === password);
       if(employee){
         console.log(`Employee Login Successfully with email:${email} and password:${password}`);
@@ -38,12 +38,9 @@ const App = () => {
         console.log("not found");
         alert(`No user available with email:${email} and password:${password}`);
       }
-    }
-    // else{
-    //   console.log("not found")
-    //   alert(`No user available with email:${email} and password:${password}`);
-    //   setUser('');
-    // }
+    } else {
+         alert("Employee data not loaded yet. Please refresh.");
+      }
     
   }
 

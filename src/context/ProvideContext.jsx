@@ -9,6 +9,10 @@ const ProvideContext = (props) => {
   
   const [userData, setUserData] = useState([]);
   useEffect( () => {
+    // ✅ Initialize data if not present
+    if (!localStorage.getItem("employees")) {
+      setLocalStorage();
+    }
     // setLocalStorage();
     const data = getLocalStorage();
     setUserData(data?.employees || []);
