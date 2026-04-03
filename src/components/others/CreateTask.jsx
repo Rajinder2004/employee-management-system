@@ -38,7 +38,7 @@ const CreateTask = () => {
     const data = userData;
     // console.log(data);
 
-    data.map( (employee) => {         
+    data?.map( (employee) => {         
       if(employee.firstname.toLowerCase() === assignTo.toLowerCase()){
         // console.log(employee, employee.firstname);
         employee.tasks.push(task);
